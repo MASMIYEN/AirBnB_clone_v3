@@ -1,6 +1,7 @@
 *.xml
 *.yaml
 *.iml
+*.txt
 models/__pycache__/
 models/engine/__pycache__/
 tests/test_models/__pycache__/
