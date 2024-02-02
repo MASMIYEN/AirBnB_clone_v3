@@ -84,5 +84,5 @@ class FileStorage:
             all_objs = self.all(cls)
             count = len(all_objs)
         else:
-            count = len(self.self.all())
+            count = len(self.all())
         return count
