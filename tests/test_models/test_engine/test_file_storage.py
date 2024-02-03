@@ -113,3 +113,26 @@ class TestFileStorage(unittest.TestCase):
         with open("file.json", "r") as f:
             js = f.read()
         self.assertEqual(json.loads(string), json.loads(js))
+
+    def test_get(self):
+        """Test the get method"""
+        # Create a new user
+        user = User()
+        user.id = "123"
+        user.name = "Test User"
+
+        # Add the user to the session and commit
+        self.session.add(user)
+        self.session.commit()
+
+        # Use the get method to retrieve the user
+        retrieved_user = self.storage.get(User, "123")
+
+        # Assert that the retrieved user is the same as the one we added
+        self.assertEqual(retrieved_user, user)
+
+    def test_count(self):
+        """Test the count method"""
+        # Create a new user
+        user = User()
+        user.id = "123"
