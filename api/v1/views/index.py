@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Index  API '''
+"""Index  API """
 
 from api.v1.views import app_views
 from models import storage
