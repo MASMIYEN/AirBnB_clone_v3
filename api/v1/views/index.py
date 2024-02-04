@@ -13,7 +13,7 @@ from models.user import User
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
-def status():
+def get_status():
     '''status of API
     '''
     return jsonify(status="OK")
@@ -36,15 +36,18 @@ def get_stats():
         objects[key] = storage.count(value)
     return jsonify(objects)
 """
-def stats():
-    '''number of objjects for each type
-    '''
-    objects = {
-        'amenities': storage.count(Amenity),
-        'cities': storage.count(City),
-        'places': storage.count(Place),
-        'reviews': storage.count(Review),
-        'states': storage.count(State),
-        'users': storage.count(User)
+def get_stats():
+    amenities = storage.count(Amenity)
+    cities = storage.count(City)
+    places = storage.count(Place)
+    reviews = storage.count(Review)
+    states = storage.count(State)
+    users = storage.count(User)
+    return {
+        "amenities": amenities,
+        "cities": cities,
+        "places": places,
+        "reviews": reviews,
+        "states": states,
+        "users": users,
     }
-    return jsonify(objects)
