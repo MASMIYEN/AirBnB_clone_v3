@@ -96,4 +96,3 @@ def update_city(state_id=None, city_id=None):
             city.save()
             return jsonify(city.to_dict()), 200
     raise NotFound()
-
